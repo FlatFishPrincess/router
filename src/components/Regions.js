@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+
 export class Regions extends Component {
   onSelectRegion = (e, region) => {
     e.preventDefault();
     this.props.onSelectRegion(region);
+    // console.log("selected region" + {region})
   };
 
   render() {
@@ -18,7 +20,8 @@ export class Regions extends Component {
               onClick={e => this.onSelectRegion(e, region)}
               className={['collection-item', region === this.props.region ? 'active' : ''].join(
                 ' '
-              )}>
+              )
+              }>
               {region}
             </a>
           ))}
@@ -27,3 +30,4 @@ export class Regions extends Component {
     );
   }
 }
+

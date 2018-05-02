@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Loader extends Component {
+export default class Loader extends Component {
   state = {
     bigDot: 0,
   };

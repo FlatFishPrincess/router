@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Loader } from '.';
+import  Loader  from './Loader';
 import * as WinesService from '../services/Wines';
 
 export class LikeButton extends Component {

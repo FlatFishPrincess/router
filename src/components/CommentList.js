@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Comment, Loader } from '.';
+import { Comment} from '.';
 import * as WinesService from '../services/Wines';
+import Loader from './Loader'
 
 export class CommentList extends Component {
   state = {
