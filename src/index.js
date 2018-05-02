@@ -25,10 +25,7 @@ class RoutedApp extends Component {
           <div>
             <Route path="/" component={WineApp} />
             <Route path="/regions" component={RegionsPage} />
-            <Route path="/regions/:regionId" render={
-              props => <WineListPage {...props}/>
-              } />
-            {/* // }component={WineListPage}  */}
+            <Route path="/regions/:regionId" component={WineListPage}/>
             <Route path="regions/:regionId/wines/:wineId" component={WinePage} />
             <Route component={NotFound} />
           </div>
