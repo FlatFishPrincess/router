@@ -7,13 +7,22 @@ import Loader from './Loader';
 export default class WinePage extends Component {
   state = {
     loading: false,
-    wine: {}
+    wine: {},
+    commentModalOpen: false
+  };
+
+
+  closeCommentModal = () => {
+    this.setState({ commentModalOpen: false });
+  };
+
+  openCommentModal = () => {
+    this.setState({ commentModalOpen: true });
   };
 
   componentDidMount() {
     this.setState({ loading: true }, () => {
       WinesService.fetchWine(this.props.match.params.wineId).then(wine => {
-        console.log('fetched wine?', wine);
         this.setState({
           loading: false,
           wine,
@@ -27,7 +36,13 @@ export default class WinePage extends Component {
       return <div className="center-align"><Loader /></div>
     } 
     return (
-      <Wine wine={this.state.wine} host={WinesService.host}/>
+      <Wine
+      wine={this.state.wine}
+      host={WinesService.host}
+      openCommentModal={this.openCommentModal}
+      closeCommentModal={this.closeCommentModal}
+      isOpen={this.state.commentModalOpen}
+      />
     );
   }
 }

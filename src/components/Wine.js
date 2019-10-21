@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LikeButton, CommentButton, CommentList } from '.';
+import { LikeButton, CommentButton, CommentList, CommentModal } from '.';
 
 export class Wine extends Component {
   render() {
@@ -7,7 +7,7 @@ export class Wine extends Component {
       return null;
     }
     return (
-      <div className="col s12 m12 l6">
+      <div className="col s12 m12 l6 offset-l3">
         <h2 className="center-align">Wine details</h2>
         <div className="card horizontal">
           <div className="card-image">
@@ -41,6 +41,9 @@ export class Wine extends Component {
             </div>
           </div>
         </div>
+        <CommentModal
+        closeCommentModal={this.props.closeCommentModal}
+        isOpen={this.props.isOpen}/>
       </div>
     );
   }

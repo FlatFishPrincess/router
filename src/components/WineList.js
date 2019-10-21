@@ -11,7 +11,7 @@ export class WineList extends Component {
       return null;
     }
     return (
-      <div className="col s12 m6 l3">
+      <div className="col s12 m12 l6 offset-l3">
         <h2 className="center-align">Wines</h2>
         <div className="collection">
           {this.props.wines.map(wine => (

@@ -34,14 +34,6 @@ export class WineApp extends Component {
     });
   }
 
-  closeCommentModal = () => {
-    this.setState({ commentModalOpen: false });
-  };
-
-  openCommentModal = () => {
-    this.setState({ commentModalOpen: true });
-  };
-
   onSelectRegion = region => {
     WinesService.fetchWinesFrom(region).then(wines => {
       this.setState({ selectedRegion: region, wines, selectedWine: wines[0] });

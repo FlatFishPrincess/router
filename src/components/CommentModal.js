@@ -31,9 +31,7 @@ export class CommentModal extends Component {
     e.preventDefault();
     const comment = this.state.comment;
     this.setState({ comment: '' });
-    WinesService.commentWine(this.props.wine.id, comment).then(() => {
-      this.props.closeCommentModal();
-    });
+    this.props.closeCommentModal();
   };
 
   onCommentChange = e => {
