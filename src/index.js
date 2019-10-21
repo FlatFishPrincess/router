@@ -5,8 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { WineApp, WineList } from './components';
 import './index.css';
-import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom'
-import RegionsPage from './components/RegionPage'
+import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom'
+import RegionsPage from './components/RegionsPage'
 import WineListPage from './components/WineListPage'
 import WinePage from './components/WinePage'
 import NotFound from './components/NotFound'
@@ -22,12 +22,15 @@ class RoutedApp extends Component {
     return (
       <Router>
         <Switch>
-          <div>
+          <div className="container">
             <Route path="/" component={WineApp} />
-            <Route path="/regions" component={RegionsPage} />
-            <Route path="/regions/:regionId" component={WineListPage}/>
-            <Route path="regions/:regionId/wines/:wineId" component={WinePage} />
-            <Route component={NotFound} />
+            <div className="row">
+              <Route exact path="/" component={RegionsPage} />
+              <Route exact path="/regions/:regionId" component={WineListPage}/>
+              <Route exact path="/regions/:regionId/wines/:wineId" component={WinePage} />
+              {/* <Route path="*" component={NotFound} /> */}
+            {/* <Redirect to="/404" /> */}
+            </div>
           </div>
         </Switch>
       </Router>

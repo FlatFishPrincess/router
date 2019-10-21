@@ -1,12 +1,11 @@
 import React from 'react'
-import { Router, IndexRoute, Route, browserHistory } from 'react-router'
+import { withRouter } from 'react-router'
 import * as WinesService from '../services/Wines';
 import {Component} from 'react'
 import Loader from './Loader'
 import {Regions} from './Regions'
 
-export default class RegionsPage extends Component {
-  
+class RegionsPage extends Component {
     state = {
       loading: false,
       regions: [],
@@ -24,7 +23,7 @@ export default class RegionsPage extends Component {
     }
   
     onSelectRegion = (region) => {
-      console.log(this.props)
+      console.log(region, 'region', this.props);
        this.props.history.push({
         pathname: `/regions/${region}`
       });
@@ -42,4 +41,5 @@ export default class RegionsPage extends Component {
       );
     }
   }
-  
+
+export default withRouter(RegionsPage);

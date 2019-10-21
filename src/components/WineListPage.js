@@ -1,5 +1,6 @@
 import React from 'react'
-import {Component} from 'react'
+import { Component } from 'react'
+import { WineList } from './WineList';
 import * as WinesService from '../services/Wines';
 
 export default class WineListPage extends Component {
@@ -11,7 +12,6 @@ export default class WineListPage extends Component {
 
   componentDidMount() {
     this.setState({ loading: true }, 
-      console.log(this.props.match.params.regionId),
       () => {
       WinesService.fetchWinesFrom(this.props.match.params.regionId).then(wines => {
         this.setState({
@@ -22,10 +22,18 @@ export default class WineListPage extends Component {
     });
   }
 
+  onSelectWine = (wine) => {
+     this.props.history.push({
+      pathname: `${this.props.location.pathname}/wines/${wine}`
+    });
+  };
+
     render() {
       return (
-        <div>Wines</div>,
-        <p>Region identifier is {this.props.match.params.regionId}</p>
+        <WineList
+          onSelectWine = {this.onSelectWine}
+          wines={this.state.wines}
+        />
       )
     }
   }

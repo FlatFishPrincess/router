@@ -3,7 +3,7 @@ import { LikeButton, CommentButton, CommentList } from '.';
 
 export class Wine extends Component {
   render() {
-    if (!this.props.wine) {
+    if (!this.props.wine || !this.props.wine.name) {
       return null;
     }
     return (
